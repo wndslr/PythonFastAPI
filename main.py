@@ -2,7 +2,10 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import Optional
 
-app = FastAPI(title="CRUD Service")
+app = FastAPI(
+    title="CRUD Service",
+    swagger_ui_parameters={"defaultModelsExpandDepth": -1},
+)
 
 items_db: dict[int, dict] = {}
 next_id = 1
